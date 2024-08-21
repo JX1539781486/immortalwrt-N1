@@ -145,7 +145,7 @@ jobs:
         body_path: release.txt
         token: ${{ env.GITHUB_TOKEN }}
 
-    - name: Send message to Telegram
+    - name: tg推送
       run: |
         curl -X POST \
           -H 'Content-Type: application/json' \
