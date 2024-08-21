@@ -14,4 +14,4 @@ jobs:
 
     steps:
     - name: tg推送
-      run: curl "https://api.telegram.org/bot{{secrets.TG_TOKEN}}/sendMessage?chat_id={{secrets.USER_ID}}&text='【Github Actions】OpenWrt-N1打包成功'"
+      run: curl "https://api.telegram.org/bot{{secrets.TG_TOKEN}}/sendMessage?chat_id={{secrets.USER_ID}}&text=hello"
