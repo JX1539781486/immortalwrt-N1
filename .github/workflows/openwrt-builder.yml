@@ -145,7 +145,7 @@ jobs:
         body_path: release.txt
         token: ${{ env.GITHUB_TOKEN }}
 
-    - name: curl "https://api.telegram.org/bot7133974609:AAFSK8uCHGz3af3njxaptVwgG1R-kgmKB4E/sendMessage?chat_id=5684739553&text=【Github Actions】OpenWrt-N1打包成功"
+    - name: curl "https://api.telegram.org/bot{{secrets.tg_token}}/sendMessage?chat_id={{secrets.user_id}}&text=【Github Actions】OpenWrt-N1打包成功"
 
     
     - name: 删除运行记录
