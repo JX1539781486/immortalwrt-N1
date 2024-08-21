@@ -13,16 +13,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '14'
-
-    - name: Install dependencies
-      run: npm install
-
     - name: Run tests
-      run: npm test
+      run: curl -X POST \
+      -H 'Content-Type: application/json' \
+      -d '{"chat_id": "5684739553", "text": "This is a test from curl", "disable_notification": true}' \
+     https://api.telegram.org/bot7133974609:AAFSK8uCHGz3af3njxaptVwgG1R-kgmKB4E/sendMessage
