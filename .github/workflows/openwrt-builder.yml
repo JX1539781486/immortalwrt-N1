@@ -146,7 +146,13 @@ jobs:
         token: ${{ env.GITHUB_TOKEN }}
 
     - name: TG推送
-      run: curl "https://api2.pushdeer.com/message/push?pushkey=${{ secrets.PUSHDEER_TOKEN }}&text=【Github Actions】OpenWrt-N1打包成功"
+      run: curl -X POST \
+      -H 'Content-Type: application/json' \
+      -d '{"chat_id": "5684739553", "text": "【Github Actions】OpenWrt-N1打包成功", "disable_notification": true}' \
+      https://api.telegram.org/bot7133974609:AAFSK8uCHGz3af3njxaptVwgG1R-kgmKB4E/sendMessage
+      
+      
+      #curl "https://api2.pushdeer.com/message/push?pushkey=${{ secrets.PUSHDEER_TOKEN }}&text=【Github Actions】OpenWrt-N1打包成功"
 
     - name: 删除运行记录
       uses: Mattraks/delete-workflow-runs@main
