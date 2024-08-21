@@ -146,9 +146,12 @@ jobs:
         token: ${{ env.GITHUB_TOKEN }}
 
     - name: tg推送
-      run: curl "https://api.telegram.org/bot{{secrets.TG_TOKEN}}/sendMessage?chat_id={{secrets.USER_ID}}&text=【Github Actions】OpenWrt-N1打包成功"
+      run: |
+        MESSAGE="🍁注意事项:首次使用建议全新刷写%0A💻适用机型;斐讯N1%0A📂源码:${{ env.REPO_URL }}%0A🌳分支:${{ env.REPO_BRANCH }}%0A⏱️编译时间:$(date +"%Y年%m月%d日%H时%M分")%0A🌐管理地址:192.168.0.2%0A👤用户名:root%0A🔒密码:password"
+        
+        curl "https://api.telegram.org/bot${{ secrets.TG_TOKEN }}/sendMessage?chat_id=${{ secrets.USER_ID }}&text=${MESSAGE}"
 
-    
+        
     - name: 删除运行记录
       uses: Mattraks/delete-workflow-runs@main
       with:
