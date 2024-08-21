@@ -13,8 +13,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run tests
-      run: curl -X POST \
-      -H 'Content-Type: application/json' \
-      -d '{"chat_id": "5684739553", "text": "This is a test from curl", "disable_notification": true}' \
-     https://api.telegram.org/bot7133974609:AAFSK8uCHGz3af3njxaptVwgG1R-kgmKB4E/sendMessage
+    - name: tg推送
+      run: curl "https://api.telegram.org/bot{{secrets.TG_TOKEN}}/sendMessage?chat_id={{secrets.USER_ID}}&text='【Github Actions】OpenWrt-N1打包成功'"
